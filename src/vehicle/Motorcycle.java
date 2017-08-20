@@ -34,10 +34,10 @@ public class Motorcycle {
     public void setRainySpeed() {
         Random randomNumber = new Random();
         int randomSpeed = randomNumber.nextInt(50 - 5 + 1) + 5;
-        this.normalSpeed -= randomSpeed;
+        normalSpeed -= randomSpeed;
     }
     public void setNormalSpeed() {
-        this.normalSpeed = 100;
+        normalSpeed = 100;
     }
 
 }

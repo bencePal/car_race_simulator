@@ -10,8 +10,9 @@ public class Main {
     private static ArrayList<Car> cars = new ArrayList<>();
     private static ArrayList<Motorcycle> motorcycles = new ArrayList<>();
     private static ArrayList<Truck> trucks = new ArrayList<>();
+    private static ArrayList<String> names = new ArrayList<>();
+    private static ArrayList<String> types = new ArrayList<>();
     private static ArrayList<Integer> distanceLengths = new ArrayList<>();
-
 
     public static void main(String[] args) {
 
@@ -29,33 +30,10 @@ public class Main {
         }
     }
 
-
     private static void simulateRace() {
         Random random = new Random();
-//        for (int i = 0; i < 50; i++) {
-//            for (Car raceCar : cars) {
-//                raceCar.setNormalSpeed();
-//                if (random.nextFloat() < 0.3) {
-//                    raceCar.setLimitedSpeed(speedLimit);
-//                }
-//                raceCar.moveForAnHour();
-//            }
-//            for (Motorcycle raceMotor : motorcycles) {
-//                raceMotor.setNormalSpeed();
-//                if (random.nextFloat() < isRaining) {
-//                    raceMotor.setRainySpeed();
-//                }
-//                raceMotor.moveForAnHour();
-//            }
-//
-//            for (Truck raceTruck : trucks) {
-//                if (random.nextFloat() < 0.05) {
-//                    raceTruck.breakdownTurnsLeft();
-//                }
-//                raceTruck.moveForAnHour();
-//            }
-//        }
         int listLength = motorcycles.size();
+
         for (int i = 0; i < 50; i++) {
             for (int j = 0; j < listLength; j++) {
                 cars.get(j).setNormalSpeed();
@@ -76,34 +54,43 @@ public class Main {
                 trucks.get(j).moveForAnHour();
             }
         }
-
-
     }
 
     private static void printRaceResults() {
-        for (Car raceCar : cars) {
-            System.out.println(raceCar.getName() + ", " + raceCar.getDistanceTraveled() +
-                    "km, " + raceCar.getType());
-            distanceLengths.add(raceCar.getDistanceTraveled());
-        }
-        for (Motorcycle raceMotor : motorcycles) {
-            System.out.println(raceMotor.getName() + ", " + raceMotor.getDistanceTraveled() +
-                    "km, " + raceMotor.getType());
-            distanceLengths.add(raceMotor.getDistanceTraveled());
-        }
-        for (Truck raceTruck : trucks) {
-            System.out.println(raceTruck.getName() + ", " + raceTruck.getDistanceTraveled() +
-                    "km, " + raceTruck.getType() + ", break down: " +
-                    raceTruck.getBreakdownTurnsLeft() + " min");
-            distanceLengths.add(raceTruck.getDistanceTraveled());
-        }
-//        int maxNumber = distanceLengths.get(0);
-//        for (int i = 0; i < distanceLengths.size(); i++) {
-//            if (distanceLengths.get(i) > maxNumber) {
-//                maxNumber = distanceLengths.get(i);
-//            }
-//        }
-//        System.out.println(maxNumber);
-    }
+        int maxNumber = 0;
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i).getName() + ", " + cars.get(i).getDistanceTraveled() +
+                    "km, " + cars.get(i).getType());
 
+            names.add(cars.get(i).getName());
+            distanceLengths.add(cars.get(i).getDistanceTraveled());
+            types.add(cars.get(i).getType());
+
+            System.out.println(motorcycles.get(i).getName() + ", " + motorcycles.get(i).getDistanceTraveled() +
+                    "km, " + motorcycles.get(i).getType());
+
+            names.add(motorcycles.get(i).getName());
+            distanceLengths.add(motorcycles.get(i).getDistanceTraveled());
+            types.add(motorcycles.get(i).getType());
+
+            System.out.println(trucks.get(i).getName() + ", " + trucks.get(i).getDistanceTraveled() +
+                    "km, " + trucks.get(i).getType() + ", break down: " +
+                    trucks.get(i).getBreakdownTurnsLeft() + " min");
+
+            names.add(trucks.get(i).getName());
+            distanceLengths.add(trucks.get(i).getDistanceTraveled());
+            types.add(trucks.get(i).getType());
+
+            if (distanceLengths.get(i) > maxNumber) {
+                maxNumber = distanceLengths.get(i);
+            }
+        }
+
+        for (int i = 0; i < distanceLengths.size(); i++) {
+            if (maxNumber == distanceLengths.get(i)) {
+                System.out.println("\nThe winner is: " + names.get(i) + ", "+
+                        distanceLengths.get(i) + ", " + types.get(i) );
+            }
+        }
+    }
 }

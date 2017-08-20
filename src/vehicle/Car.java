@@ -19,11 +19,11 @@ public class Car {
     }
 
     public void setLimitedSpeed(int limit) {
-        this.normalSpeed = limit;
+        normalSpeed = limit;
     }
 
     public void setNormalSpeed() {
-        this.normalSpeed = getRandomNumber(80, 110);
+        normalSpeed = getRandomNumber(80, 110);
     }
 
     public void moveForAnHour() {
