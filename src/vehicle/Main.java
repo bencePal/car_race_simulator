@@ -75,7 +75,7 @@ public class Main {
 
             System.out.println(trucks.get(i).getName() + ", " + trucks.get(i).getDistanceTraveled() +
                     "km, " + trucks.get(i).getType() + ", break down: " +
-                    trucks.get(i).getBreakdownTurnsLeft() + " min");
+                    trucks.get(i).getBreakdownTurnsLeft() + "h");
 
             names.add(trucks.get(i).getName());
             distanceLengths.add(trucks.get(i).getDistanceTraveled());

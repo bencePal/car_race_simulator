@@ -37,11 +37,11 @@ public class Truck {
     public void moveForAnHour() {
         if (counter == 1) {
             counter++;
-            breakdownTurnsLeft += 100;
+            breakdownTurnsLeft += 1;
             speed = 0;
         }
         else if (counter == 2) {
-            breakdownTurnsLeft += 100;
+            breakdownTurnsLeft += 1;
             speed = 0;
             counter = 0;
         } else {
