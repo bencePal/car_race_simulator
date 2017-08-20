@@ -57,7 +57,6 @@ public class Main {
     }
 
     private static void printRaceResults() {
-        int maxNumber = 0;
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i).getName() + ", " + cars.get(i).getDistanceTraveled() +
                     "km, " + cars.get(i).getType());
@@ -80,7 +79,10 @@ public class Main {
             names.add(trucks.get(i).getName());
             distanceLengths.add(trucks.get(i).getDistanceTraveled());
             types.add(trucks.get(i).getType());
+        }
 
+        int maxNumber = 0;
+        for (int i = 0; i < distanceLengths.size(); i++) {
             if (distanceLengths.get(i) > maxNumber) {
                 maxNumber = distanceLengths.get(i);
             }
