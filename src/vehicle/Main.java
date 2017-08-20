@@ -81,7 +81,7 @@ public class Main {
             types.add(trucks.get(i).getType());
         }
 
-        int maxNumber = 0;
+        int maxNumber = distanceLengths.get(0);
         for (int i = 0; i < distanceLengths.size(); i++) {
             if (distanceLengths.get(i) > maxNumber) {
                 maxNumber = distanceLengths.get(i);
